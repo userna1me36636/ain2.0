@@ -1,0 +1,254 @@
+2026-08-03 18:28:05 | INFO     | discord.client | logging in using static token
+2026-08-03 18:41:45 | INFO     | discord.client | logging in using static token
+2026-08-03 18:41:49 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: d7737a26574bbb8a694f98556463015c).
+2026-08-03 18:41:51 | INFO     | bot | Logged in as ain2.0#2330 (1533976219190825134)
+2026-08-03 18:41:52 | INFO     | bot | Synced 32 slash commands
+2026-08-03 18:42:43 | ERROR    | discord.client | Ignoring exception in on_member_remove
+Traceback (most recent call last):
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\cogs\event_logging.py", line 50, in on_member_remove
+    await self.send_log(member.guild, "Member Left", f"{member} ({member.id})")
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\cogs\event_logging.py", line 30, in send_log
+    channel = await self.log_channel(guild)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\cogs\event_logging.py", line 24, in log_channel
+    settings = await self.bot.db.get_settings(guild.id, self.bot.settings.default_prefix)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\core\database.py", line 149, in get_settings
+    await self.execute(
+    ...<4 lines>...
+    )
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\core\database.py", line 143, in execute
+    cur = await db.execute(query, args)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiosqlite\core.py", line 193, in execute
+    cursor = await self._execute(self._conn.execute, sql, parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiosqlite\core.py", line 132, in _execute
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiosqlite\core.py", line 115, in run
+    result = function()
+sqlite3.IntegrityError: UNIQUE constraint failed: guild_settings.guild_id
+2026-08-03 18:42:43 | ERROR    | discord.client | Ignoring exception in on_guild_role_delete
+Traceback (most recent call last):
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\cogs\antinuke.py", line 93, in on_guild_role_delete
+    await self.record(role.guild, "role_delete", discord.AuditLogAction.role_delete)
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\cogs\antinuke.py", line 52, in record
+    actor = await self.actor_from_audit(guild, action)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\cogs\antinuke.py", line 43, in actor_from_audit
+    async for entry in guild.audit_logs(limit=1, action=action):
+    ...<4 lines>...
+            return member
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\guild.py", line 4323, in audit_logs
+    data, raw_entries, state, limit = await strategy(retrieve, state, limit)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\guild.py", line 4254, in _before_strategy
+    data = await self._state.http.get_audit_logs(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.id, limit=retrieve, user_id=user_id, action_type=action_type, before=before_id
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 774, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10004): Unknown Guild
+2026-08-03 19:14:43 | INFO     | discord.client | logging in using static token
+2026-08-03 19:14:47 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 01b3f110dd8344948e61eb67a925f44a).
+2026-08-03 19:14:49 | INFO     | bot | Logged in as ain2.0#2330 (1533976219190825134)
+2026-08-03 19:14:49 | INFO     | bot | Synced 42 slash commands
+2026-08-03 19:15:24 | ERROR    | bot | Command error in help
+Traceback (most recent call last):
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\cogs\help.py", line 89, in help_command
+    await ctx.reply(embed=self.overview_embed(prefix), view=HelpView(self), mention_author=False)
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\context.py", line 782, in reply
+    return await self.send(content, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\context.py", line 1141, in send
+    response = await self.interaction.response.send_message(**kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\interactions.py", line 1085, in send_message
+    data = await adapter.create_interaction_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\webhook\async_.py", line 224, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\hybrid.py", line 463, in _invoke_with_namespace
+    value = await self._do_call(ctx, ctx.kwargs)  # type: ignore
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'help' raised an exception: NotFound: 404 Not Found (error code: 10062): Unknown interaction
+2026-08-03 19:15:24 | ERROR    | discord.client | Ignoring exception in on_command_error
+Traceback (most recent call last):
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\core\bot.py", line 91, in on_command_error
+    await ctx.reply("Something went wrong while running that command.", mention_author=False)
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\context.py", line 782, in reply
+    return await self.send(content, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\ext\commands\context.py", line 1141, in send
+    response = await self.interaction.response.send_message(**kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\interactions.py", line 1085, in send_message
+    data = await adapter.create_interaction_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\webhook\async_.py", line 224, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
+2026-08-03 19:16:25 | ERROR    | discord.app_commands.tree | Ignoring exception in command 'shop'
+Traceback (most recent call last):
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\cogs\economy.py", line 80, in shop
+    await interaction.response.send_message(embed=embed("Shop", "\n".join(f"{k}: {v}" for k, v in SHOP.items())))
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\interactions.py", line 1085, in send_message
+    data = await adapter.create_interaction_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\webhook\async_.py", line 224, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'shop' raised an exception: NotFound: 404 Not Found (error code: 10062): Unknown interaction
+2026-08-03 19:16:43 | ERROR    | discord.app_commands.tree | Ignoring exception in command 'balance'
+Traceback (most recent call last):
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\cogs\economy.py", line 33, in balance
+    row = await self.account(interaction.guild_id, member.id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\cogs\economy.py", line 26, in account
+    await self.bot.db.execute("INSERT INTO economy(guild_id,user_id) VALUES(?,?)", guild_id, user_id)
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\core\database.py", line 143, in execute
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiosqlite\core.py", line 193, in execute
+    cursor = await self._execute(self._conn.execute, sql, parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiosqlite\core.py", line 132, in _execute
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiosqlite\core.py", line 115, in run
+    result = function()
+sqlite3.IntegrityError: UNIQUE constraint failed: economy.guild_id, economy.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'balance' raised an exception: IntegrityError: UNIQUE constraint failed: economy.guild_id, economy.user_id
+2026-08-03 19:17:19 | INFO     | discord.client | logging in using static token
+2026-08-03 19:17:22 | INFO     | discord.gateway | Shard ID None has connected to Gateway (Session ID: 3b0cb85ea584255ddf057abaccd6c3f3).
+2026-08-03 19:17:24 | INFO     | bot | Logged in as ain2.0#2330 (1533976219190825134)
+2026-08-03 19:17:25 | INFO     | bot | Synced 42 slash commands
+2026-08-03 19:21:31 | ERROR    | discord.client | Ignoring exception in on_guild_role_delete
+Traceback (most recent call last):
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\cogs\antinuke.py", line 114, in on_guild_role_delete
+    await self.record(role.guild, "role_delete", discord.AuditLogAction.role_delete)
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\cogs\antinuke.py", line 71, in record
+    actor = await self.actor_from_audit(guild, action)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\cogs\antinuke.py", line 62, in actor_from_audit
+    async for entry in guild.audit_logs(limit=1, action=action):
+    ...<4 lines>...
+            return member
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\guild.py", line 4323, in audit_logs
+    data, raw_entries, state, limit = await strategy(retrieve, state, limit)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\guild.py", line 4254, in _before_strategy
+    data = await self._state.http.get_audit_logs(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.id, limit=retrieve, user_id=user_id, action_type=action_type, before=before_id
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\http.py", line 774, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10004): Unknown Guild
+2026-08-03 19:22:28 | ERROR    | discord.app_commands.tree | Ignoring exception in command 'make_code'
+Traceback (most recent call last):
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\cogs\server_backup.py", line 109, in make_backup_code
+    await self.send_code(interaction, code)
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\cogs\server_backup.py", line 94, in send_code
+    await session.post(url, json={"content": message})
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\client.py", line 556, in _request
+    raise NonHttpUrlClientError(url)
+aiohttp.client_exceptions.NonHttpUrlClientError: your-webhook-url-herehttps://discord.com/api/webhooks/1533990631733596270/7HFm-0VE6-2XFw1hPcpSsB4DOKfFW-vsyYmE3t2bcxtovPbpSjHeAaWW3pwT6B7fE4uS
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'make_code' raised an exception: NonHttpUrlClientError: your-webhook-url-herehttps://discord.com/api/webhooks/1533990631733596270/7HFm-0VE6-2XFw1hPcpSsB4DOKfFW-vsyYmE3t2bcxtovPbpSjHeAaWW3pwT6B7fE4uS
+2026-08-03 19:25:14 | ERROR    | discord.app_commands.tree | Ignoring exception in command 'make_code'
+Traceback (most recent call last):
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\cogs\server_backup.py", line 109, in make_backup_code
+    await self.send_code(interaction, code)
+  File "C:\Users\Maliq\Documents\Codex\2026-08-03\files-mentioned-by-the-user-text\outputs\all-in-one-discord-bot\bot\cogs\server_backup.py", line 94, in send_code
+    await session.post(url, json={"content": message})
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\client.py", line 556, in _request
+    raise NonHttpUrlClientError(url)
+aiohttp.client_exceptions.NonHttpUrlClientError: your-webhook-url-herehttps://discord.com/api/webhooks/1533990631733596270/7HFm-0VE6-2XFw1hPcpSsB4DOKfFW-vsyYmE3t2bcxtovPbpSjHeAaWW3pwT6B7fE4uS
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Maliq\AppData\Local\Programs\Python\Python313\Lib\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'make_code' raised an exception: NonHttpUrlClientError: your-webhook-url-herehttps://discord.com/api/webhooks/1533990631733596270/7HFm-0VE6-2XFw1hPcpSsB4DOKfFW-vsyYmE3t2bcxtovPbpSjHeAaWW3pwT6B7fE4uS
